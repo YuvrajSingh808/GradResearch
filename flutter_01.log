@@ -1,0 +1,68 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run --release -d chrome --web-port=73575
+
+## exception
+
+ArgumentError: Invalid argument(s): Invalid port 73575
+
+```
+#0      _throwOnBadPort (dart:io-patch/socket_patch.dart:124:5)
+#1      _RawServerSocket.bind (dart:io-patch/socket_patch.dart:1432:5)
+#2      _ServerSocket.bind (dart:io-patch/socket_patch.dart:1705:29)
+#3      ServerSocket._bind (dart:io-patch/socket_patch.dart:1696:26)
+#4      ServerSocket.bind (dart:io/socket.dart:386:27)
+#5      _HttpServer.bind (dart:_http/http_impl.dart:2860:25)
+#6      HttpServer.bind (dart:_http:229:19)
+#7      WebAssetServer.start (package:flutter_tools/src/isolated/devfs_web.dart:188:39)
+<asynchronous suspension>
+#8      WebDevFS.create (package:flutter_tools/src/isolated/devfs_web.dart:689:22)
+<asynchronous suspension>
+#9      _ResidentWebRunner.run.<anonymous closure> (package:flutter_tools/src/isolated/resident_web_runner.dart:506:25)
+<asynchronous suspension>
+#10     asyncGuard.<anonymous closure> (package:flutter_tools/src/base/async_guard.dart:111:24)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel beta, 1.25.0-8.3.pre, on Microsoft Windows [Version 10.0.19042.746], locale en-US)
+    • Flutter version 1.25.0-8.3.pre at D:\flutter
+    • Framework revision 5d36f2e7f5 (4 weeks ago), 2021-01-14 15:57:49 -0800
+    • Engine revision 7a8f8ca02c
+    • Dart version 2.12.0 (build 2.12.0-133.7.beta)
+
+[!] Android toolchain - develop for Android devices (Android SDK version 29.0.3)
+    • Android SDK at C:\Users\hp\AppData\Local\Android\sdk
+    • Platform android-29, build-tools 29.0.3
+    • Java binary at: C:\Program Files\Android\Android Studio\jre\bin\java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_212-release-1586-b04)
+    ✗ Android license status unknown.
+      Run `flutter doctor --android-licenses` to accept the SDK licenses.
+      See https://flutter.dev/docs/get-started/install/windows#android-setup for more details.
+
+[✓] Chrome - develop for the web
+    • Chrome at C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+
+[✓] Android Studio (version 3.6)
+    • Android Studio at C:\Program Files\Android\Android Studio
+    • Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    • Java version OpenJDK Runtime Environment (build 1.8.0_212-release-1586-b04)
+
+[✓] VS Code (version 1.53.0)
+    • VS Code at C:\Users\hp\AppData\Local\Programs\Microsoft VS Code
+    • Flutter extension version 3.19.0
+
+[✓] Connected device (2 available)
+    • Chrome (web) • chrome • web-javascript • Google Chrome 88.0.4324.146
+    • Edge (web)   • edge   • web-javascript • Microsoft Edge 87.0.664.75
+
+! Doctor found issues in 1 category.
+```
