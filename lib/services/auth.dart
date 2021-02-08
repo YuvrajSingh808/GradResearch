@@ -1,6 +1,4 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -21,8 +19,6 @@ String imageUrl;
 /// Retrieves some general user related information
 /// from their Google account for ease of the login process
 Future<String> signInWithGoogle() async {
-  await Firebase.initializeApp();
-
   final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
   final GoogleSignInAuthentication googleSignInAuthentication =
       await googleSignInAccount.authentication;
@@ -65,8 +61,6 @@ Future<String> signInWithGoogle() async {
 }
 
 Future<String> registerWithEmailPassword(String email, String password) async {
-  await Firebase.initializeApp();
-
   final UserCredential userCredential =
       await _auth.createUserWithEmailAndPassword(
     email: email,
@@ -93,8 +87,6 @@ Future<String> registerWithEmailPassword(String email, String password) async {
 }
 
 Future<String> signInWithEmailPassword(String email, String password) async {
-  await Firebase.initializeApp();
-
   final UserCredential userCredential = await _auth.signInWithEmailAndPassword(
     email: email,
     password: password,
